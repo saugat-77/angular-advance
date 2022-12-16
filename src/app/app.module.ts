@@ -7,19 +7,19 @@ import {StoreModule} from '@ngrx/store';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TodoModule} from './forms/todo/todo.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { todoReducer } from './forms/todo/store/todo.reducer';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({todoState: todoReducer}),
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
+      maxAge: 25,
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
     BrowserAnimationsModule,
@@ -28,5 +28,4 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}
