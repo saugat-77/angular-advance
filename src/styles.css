@@ -45,15 +45,15 @@ body {
 }
 
 .green {
-  color: #037971;
+  color: #037971 !important;
 }
 
 .pink {
-  color: #e31b6d
+  color: #e31b6d !important;
 }
 
 .red {
-  color: #ec5453;
+  color: #ec5453 !important;
 }
 
 .coffee {
