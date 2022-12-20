@@ -8,13 +8,20 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TodoModule} from './forms/todo/todo.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { todoReducer } from './forms/todo/store/todo.reducer';
-import {VoidComponent} from './void/void.component';
+import {HomeComponent} from './home/home.component';
 import { HeaderComponent } from './components/header/header.component'
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppHttpInterceptor } from './app-http-interceptor';
+
+export const httpInceptorProvider =[
+  {provider:HTTP_INTERCEPTORS, useClass:AppHttpInterceptor, multi:true},
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    VoidComponent,
+    HomeComponent,
     HeaderComponent,
   ],
   imports: [
@@ -28,9 +35,13 @@ import { HeaderComponent } from './components/header/header.component'
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
     BrowserAnimationsModule,
-    // TodoModule,
+    TodoModule,
+    MatToolbarModule,
   ],
-  providers: [],
+  providers: [httpInceptorProvider],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  HeaderComponent
+
+}

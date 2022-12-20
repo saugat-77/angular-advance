@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+// import { HeaderComponent } from './header.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 
@@ -13,7 +17,10 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    // HeaderComponent,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class HeaderModule { }
